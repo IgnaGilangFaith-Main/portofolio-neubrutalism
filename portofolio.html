@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Gilang Risky Mahardika - Fullstack Developer specializing in PHP, Laravel, and modern web technologies." />
+    <title>Gilang Risky Mahardika | Fullstack Developer</title>
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="portofolio.css" />
+    <link rel="shortcut icon" href="img/logo/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" aria-hidden="true">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-gradient" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <span class="brand-mark">&lt;GRM/&gt;</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7" -duration="900">
+                    <span class="hero-badge">
+                        <span class="dot"></span> Available for work
+                    </span>
+                    <h1 class="hero-title mt-4">
+                        Hi, I'm <span class="gradient-text">Gilang Risky</span><br />
+                        <span class="hero-role">Fullstack Developer</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Saya membangun aplikasi web modern dengan fokus pada performa,
+                        keamanan, dan pengalaman pengguna. Spesialisasi di <strong>PHP</strong>,
+                        <strong>Laravel</strong>, dan <strong>JavaScript</strong>.
+                    </p>
+                    <div class="hero-cta d-flex flex-wrap gap-3 mt-4">
+                        <a href="#projects" class="btn btn-primary-custom">
+                            <i class="bi bi-rocket-takeoff"></i> Lihat Proyek
+                        </a>
+                        <a href="#contact" class="btn btn-outline-custom">
+                            <i class="bi bi-chat-dots"></i> Hubungi Saya
+                        </a>
+                    </div>
+                    <div class="hero-stats mt-5">
+                        <div class="stat">
+                            <strong>3+</strong>
+                            <span>Proyek Selesai</span>
+                        </div>
+                        <div class="stat">
+                            <strong>3.71</strong>
+                            <span>IPK</span>
+                        </div>
+                        <div class="stat">
+                            <strong>100%</strong>
+                            <span>Dedikasi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center" -duration="900">
+                    <div class="hero-visual data-aos=" fade-up" data-aos-delay="100"">
+                        <div class=" avatar-ring">
+                        <div class="avatar-inner">
+                            <img src="img/logo/logo.png" alt="Gilang Risky Mahardika" />
+                        </div>
+                    </div>
+                    <div class="floating-card card-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
+                            alt="PHP" />
+                        <span>PHP</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+                            alt="Laravel" />
+                        <span>Laravel</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                            alt="JavaScript" />
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                            alt="MySQL" />
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <i class="bi bi-mouse"></i>
+            <span>Scroll</span>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag">About</span>
+                <h2 class="section-title">Mengenal Saya Lebih Dekat</h2>
+                <p class="section-subtitle">
+                    Fresh graduate dengan semangat kuat untuk membangun solusi web yang
+                    berdampak.
+                </p>
+            </div>
+
+            <div class="row align-items-center g-5 mt-3">
+                <div class="col-lg-5" -duration="800">
+                    <div class="about-photo">
+                        <div class="photo-frame">
+                            <img src="img/logo/logo.png" alt="Gilang Risky Mahardika" />
+                        </div>
+                        <div class="experience-badge">
+                            <strong>Fresh</strong>
+                            <span>Graduate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" -duration="800">
+                    <h3 class="about-heading">
+                        Fullstack Developer dengan Fondasi Akademik yang Kuat
+                    </h3>
+                    <p class="about-text">
+                        Saya adalah lulusan Politeknik Piksi Ganesha Indonesia dengan IPK
+                        <strong>3.71</strong>. Saya berfokus pada pengembangan web
+                        menggunakan PHP Native maupun framework <strong>Laravel</strong>.
+                        Saya senang belajar teknologi baru dan mengubah ide menjadi produk
+                        digital yang fungsional dan elegan.
+                    </p>
+                    <div class="info-grid mt-4">
+                        <div class="info-item data-aos=" fade-up"">
+                            <i class="bi bi-mortarboard-fill"></i>
+                            <div>
+                                <small>Pendidikan</small>
+                                <strong>Politeknik Piksi Ganesha Indonesia</strong>
+                            </div>
+                        </div>
+                        <div class="info-item data-aos=" fade-up"">
+                            <i class="bi bi-award-fill"></i>
+                            <div>
+                                <small>IPK</small>
+                                <strong>3.71 / 4.00</strong>
+                            </div>
+                        </div>
+                        <div class="info-item data-aos=" fade-up"">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <small>Lokasi</small>
+                                <strong>Indonesia</strong>
+                            </div>
+                        </div>
+                        <div class="info-item data-aos=" fade-up"">
+                            <i class="bi bi-envelope-fill"></i>
+                            <div>
+                                <small>Email</small>
+                                <strong>gilangriskymahardhika@gmail.com</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag">Skills</span>
+                <h2 class="section-title">Tech Stack & Tools</h2>
+                <p class="section-subtitle">Teknologi yang saya gunakan sehari-hari.</p>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
+                                alt="PHP" /></div>
+                        <h5>PHP</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="30">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+                                alt="Laravel" /></div>
+                        <h5>Laravel</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                alt="JavaScript" /></div>
+                        <h5>JavaScript</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="90">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                                alt="HTML5" /><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                                alt="CSS3" /></div>
+                        <h5>HTML5 & CSS3</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                                alt="Bootstrap" /></div>
+                        <h5>Bootstrap 5</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                                alt="MySQL" /></div>
+                        <h5>MySQL</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <div class="skill-card">
+                        <div class="skill-icon"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                                alt="Git" /></div>
+                        <h5>Git & GitHub</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32"
+                                height="32" aria-label="REST API">
+                                <path
+                                    d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                            </svg>
+                        </div>
+                        <h5>REST API</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/anthropic.svg"
+                                alt="Claude Code" />
+                        </div>
+                        <h5>Claude Code</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/githubcopilot.svg"
+                                alt="GitHub Copilot" />
+                        </div>
+                        <h5>GitHub Copilot</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg"
+                                alt="OpenAI Codex" />
+                        </div>
+                        <h5>OpenAI Codex</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/opencode.svg"
+                                alt="OpenCode" />
+                        </div>
+                        <h5>OpenCode</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/logo/hermes-agent.webp" alt="Hermes Agent" />
+                        </div>
+                        <h5>Hermes Agent</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Proyek Pilihan</h2>
+                <p class="section-subtitle">Beberapa karya yang menunjukkan kemampuan fullstack saya.</p>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/project/sistem-absensi-berbasis-wajah.png"
+                                alt="Sistem Absensi Berbasis Wajah" />
+                            <span class="project-tag">Laravel</span>
+                        </div>
+                        <div class="project-body">
+                            <h5>Sistem Absensi Wajah</h5>
+                            <p>Sistem absensi menggunakan pengenalan wajah.</p>
+                            <div class="project-meta">
+                                <span><i class="bi bi-tag-fill"></i> Attendance</span>
+                                <span><i class="bi bi-calendar3"></i> 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/project/e-learning.png" alt="E-Learning Platform" />
+                            <span class="project-tag">Laravel</span>
+                        </div>
+                        <div class="project-body">
+                            <h5>E-Learning Platform</h5>
+                            <p>Platform pembelajaran online berbasis web yang interaktif.</p>
+                            <div class="project-meta">
+                                <span><i class="bi bi-tag-fill"></i> Education</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/project/sistem-pendaftaran-elmuna.png" alt="Sistem Pendaftaran Elmuna" />
+                            <span class="project-tag">Laravel</span>
+                        </div>
+                        <div class="project-body">
+                            <h5>Sistem Pendaftaran Elmuna</h5>
+                            <p>Sistem pendaftaran siswa baru secara online.</p>
+                            <div class="project-meta">
+                                <span><i class="bi bi-tag-fill"></i> Registration</span>
+                                <span><i class="bi bi-calendar3"></i> 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/project/blog-elmuna.png" alt="Blog Elmuna" />
+                            <span class="project-tag">Laravel</span>
+                        </div>
+                        <div class="project-body">
+                            <h5>Blog Elmuna</h5>
+                            <p>Website blog untuk berbagi informasi dan artikel menarik.</p>
+                            <div class="project-meta">
+                                <span><i class="bi bi-tag-fill"></i> Blog</span>
+                                <span><i class="bi bi-calendar3"></i> 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Mari Berkolaborasi</h2>
+                <p class="section-subtitle">
+                    Terbuka untuk peluang kerja dan kolaborasi. Ayo wujudkan ide Anda.
+                </p>
+            </div>
+
+            <div class="row g-4 mt-3 justify-content-center">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="mailto:gilangriskymahardhika@gmail.com" class="contact-card">
+                        <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+                        <h5>Email</h5>
+                        <p>gilangriskymahardhika@gmail.com</p>
+                        <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.linkedin.com/in/gilang-risky-mahardika" target="_blank" rel="noopener"
+                        class="contact-card">
+                        <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
+                        <h5>LinkedIn</h5>
+                        <p>Gilang Risky Mahardika</p>
+                        <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://github.com/IgnaGilangFaith-Main" target="_blank" rel="noopener"
+                        class="contact-card">
+                        <div class="contact-icon"><i class="bi bi-github"></i></div>
+                        <h5>GitHub</h5>
+                        <p>@Ignagilangfaith-Main</p>
+                        <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="mailto:gilangriskymahardhika@gmail.com" class="btn btn-primary-custom btn-lg">
+                    <i class="bi bi-send-fill"></i> Kirim Pesan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        &copy; 2026 <strong>Gilang Risky Mahardika</strong>. Dibuat dengan
+                        <i class="bi bi-heart-fill text-danger"></i> & Bootstrap 5.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="https://github.com/IgnaGilangFaith-Main" target="_blank" rel="noopener"
+                            aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/gilang-risky-mahardika" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="mailto:gilangriskymahardhika@gmail.com" aria-label="Email"><i
+                                class="bihermes-agent-removebg-preview bi-envelope-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="portofolio.js"></script>
+    <script>
+        AOS.init({
+            duration: 500,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60
+        });
+    </script>
+</body>
+
+</html>

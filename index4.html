@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilang Risky Mahardika — Web Developer Portfolio</title>
+    <link rel="shortcut icon" href="img/logo/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <style>
+        :root {
+            --green: #00e676;
+            --dark: #0a0f0a;
+            --dark-2: #101810;
+            --border: #1e2b1e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: #d5e8d5;
+            font-family: 'Courier New', ui-monospace, monospace;
+        }
+
+        .text-green {
+            color: var(--green) !important;
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: #04140a;
+            font-weight: 700;
+            border: none;
+        }
+
+        .btn-green:hover {
+            background: #00c864;
+            color: #04140a;
+        }
+
+        .btn-outline-green {
+            border: 1px solid var(--green);
+            color: var(--green);
+        }
+
+        .btn-outline-green:hover {
+            background: var(--green);
+            color: #04140a;
+        }
+
+        .navbar {
+            background: rgba(10, 15, 10, .92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar .nav-link {
+            color: #9fbf9f;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: var(--green);
+        }
+
+        /* Hero terminal style */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background:
+                linear-gradient(rgba(0, 230, 118, .04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 230, 118, .04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .terminal {
+            background: var(--dark-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 230, 118, .12);
+        }
+
+        .terminal-bar {
+            background: #16211a;
+            padding: .6rem 1rem;
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-r {
+            background: #ff5f57;
+        }
+
+        .dot-y {
+            background: #febc2e;
+        }
+
+        .dot-g {
+            background: #28c840;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-size: .95rem;
+            line-height: 1.9;
+        }
+
+        .prompt::before {
+            content: '$ ';
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 9px;
+            height: 1.1em;
+            background: var(--green);
+            vertical-align: text-bottom;
+            animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .section-pad {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: var(--green);
+        }
+
+        .card-dev {
+            background: var(--dark-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            height: 100%;
+            transition: transform .3s, border-color .3s;
+        }
+
+        .card-dev:hover {
+            transform: translateY(-6px);
+            border-color: var(--green);
+        }
+
+        .card-dev .icon {
+            font-size: 2rem;
+            color: var(--green);
+        }
+
+        .tech-tag {
+            border: 1px solid var(--border);
+            color: #9fbf9f;
+            padding: .35rem .9rem;
+            border-radius: 4px;
+            font-size: .85rem;
+            transition: all .25s;
+        }
+
+        .tech-tag i {
+            font-size: 1.1rem;
+            vertical-align: middle;
+            margin-right: .3rem;
+        }
+
+        .tech-tag .github-icon {
+            color: #e6edf3;
+        }
+
+        .tech-tag:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .timeline {
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.95rem;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 10px var(--green);
+        }
+
+        .project-img {
+            border-radius: 8px 8px 0 0;
+            filter: grayscale(40%);
+            transition: filter .3s;
+        }
+
+        .card-dev:hover .project-img {
+            filter: grayscale(0);
+        }
+
+        .form-control {
+            background: var(--dark-2);
+            border: 1px solid var(--border);
+            color: #d5e8d5;
+        }
+
+        .form-control:focus {
+            background: var(--dark-2);
+            border-color: var(--green);
+            color: #d5e8d5;
+            box-shadow: 0 0 0 .2rem rgba(0, 230, 118, .15);
+        }
+
+        .form-control::placeholder {
+            color: #5a735a;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+        }
+
+        .soc {
+            color: #9fbf9f;
+            font-size: 1.25rem;
+            transition: color .25s;
+        }
+
+        .soc:hover {
+            color: var(--green);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <span class="text-green">~/</span>gilang<span class="text-green">.dev</span>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="#home">./home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">./layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stack">./stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#journey">./perjalanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">./proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">./kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <p class="text-green mb-2">// halo dunia, saya</p>
+                    <h1 class="display-3 fw-bold text-white">Gilang Risky<br>Mahardika</h1>
+                    <h2 class="h4 text-green mb-4">Fullstack Web Developer</h2>
+                    <p class="text-secondary">
+                        Fresh graduate D3 Informatika Politeknik Piksi Ganesha Indonesia (IPK 3.71).
+                        Spesialis PHP &amp; Laravel — membangun website cepat, aman, dan mudah
+                        dikembangkan, dari landing page sampai sistem informasi penuh.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#work" class="btn btn-green btn-lg">Lihat Karya</a>
+                        <a href="#contact" class="btn btn-outline-green btn-lg">
+                            <i class="bi bi-send me-1"></i> Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="terminal">
+                        <div class="terminal-bar">
+                            <span class="dot dot-r"></span>
+                            <span class="dot dot-y"></span>
+                            <span class="dot dot-g"></span>
+                            <span class="ms-2 small text-secondary">gilang@dev: ~</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="prompt">whoami</div>
+                            <div class="text-white mb-2">gilang — fullstack web developer (php/laravel)</div>
+                            <div class="prompt">cat skills.txt</div>
+                            <div class="mb-2">["HTML", "CSS", "JavaScript", "Bootstrap", "Tailwind", "PHP", "Laravel",
+                                "MySQL"]</div>
+                            <div class="prompt">status --now</div>
+                            <div class="mb-2"><span class="text-green">●</span> fresh graduate — open for opportunity
+                            </div>
+                            <div class="prompt"><span class="cursor"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services -->
+    <section id="services" class="section-pad">
+        <div class="container">
+            <h2 class="section-title text-center text-white">&lt;<span>Layanan</span> /&gt;</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-window-sidebar"></i></div>
+                        <h5 class="text-white">Frontend Dev</h5>
+                        <p class="text-secondary small mb-0">UI responsif dan interaktif dengan HTML, CSS, Bootstrap,
+                            Tailwind.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-server"></i></div>
+                        <h5 class="text-white">Backend Dev</h5>
+                        <p class="text-secondary small mb-0">API, database, dan logika server dengan PHP/Laravel.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-phone"></i></div>
+                        <h5 class="text-white">Responsive Design</h5>
+                        <p class="text-secondary small mb-0">Tampilan optimal di semua ukuran layar.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-speedometer2"></i></div>
+                        <h5 class="text-white">Sistem Informasi</h5>
+                        <p class="text-secondary small mb-0">E-learning, absensi, pendaftaran — aplikasi web kampus &
+                            UMKM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="stack" class="section-pad" style="background: var(--dark-2);">
+        <div class="container">
+            <h2 class="section-title text-center text-white">&lt;<span>Tech Stack</span> /&gt;</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="tech-tag"><i class="devicon-html5-plain colored"></i>HTML5</span>
+                        <span class="tech-tag"><i class="devicon-css3-plain colored"></i>CSS3</span>
+                        <span class="tech-tag"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                        <span class="tech-tag"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                        <span class="tech-tag"><i class="devicon-tailwindcss-plain colored"></i>Tailwind CSS</span>
+                        <span class="tech-tag"><i class="devicon-php-plain colored"></i>PHP</span>
+                        <span class="tech-tag"><i class="devicon-laravel-plain colored"></i>Laravel</span>
+                        <span class="tech-tag"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                        <span class="tech-tag"><i class="devicon-git-plain colored"></i>Git</span>
+                        <span class="tech-tag"><i class="devicon-github-original github-icon"></i>GitHub</span>
+                        <span class="tech-tag"><i class="bi bi-braces text-green me-1"></i>REST API</span>
+                        <span class="tech-tag"><i class="bi bi-terminal text-green me-1"></i>Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey -->
+    <section id="journey" class="section-pad">
+        <div class="container">
+            <h2 class="section-title text-center text-white">&lt;<span>Perjalanan</span> /&gt;</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="text-green small">2025 — Sekarang</span>
+                            <h5 class="text-white mt-1">Fresh Graduate — Mencari Peluang</h5>
+                            <p class="text-secondary small mb-0">Lulus D3 Informatika dengan IPK 3.71. Terbuka untuk
+                                posisi Website Developer.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-green small">2022 — 2025</span>
+                            <h5 class="text-white mt-1">Kuliah D3 Informatika</h5>
+                            <p class="text-secondary small mb-0">Politeknik Piksi Ganesha Indonesia. Mendalami web dev:
+                                PHP native, Laravel, MySQL.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-green small">Project Kampus</span>
+                            <h5 class="text-white mt-1">Sistem Informasi</h5>
+                            <p class="text-secondary small mb-0">E-learning, sistem pendaftaran, blog, dan absensi
+                                berbasis pengenalan wajah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="work" class="section-pad" style="background: var(--dark-2);">
+        <div class="container">
+            <h2 class="section-title text-center text-white">&lt;<span>Proyek</span> /&gt;</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev overflow-hidden">
+                        <img src="img/project/e-learning.png" class="project-img w-100" alt="E-Learning">
+                        <div class="p-4">
+                            <h5 class="text-white">E-Learning</h5>
+                            <p class="text-secondary small">Pembelajaran online — manajemen materi, tugas, dan nilai.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="tech-tag">Laravel</span>
+                                <a href="#" class="text-green text-decoration-none">Detail <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev overflow-hidden">
+                        <img src="img/project/blog-elmuna.png" class="project-img w-100" alt="Blog Elmuna">
+                        <div class="p-4">
+                            <h5 class="text-white">Blog Elmuna</h5>
+                            <p class="text-secondary small">Platform blog dengan artikel, kategori, dan konten dinamis.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="tech-tag">Laravel</span>
+                                <a href="#" class="text-green text-decoration-none">Detail <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev overflow-hidden">
+                        <img src="img/project/sistem-pendaftaran-elmuna.png" class="project-img w-100"
+                            alt="Sistem Pendaftaran">
+                        <div class="p-4">
+                            <h5 class="text-white">Sistem Pendaftaran</h5>
+                            <p class="text-secondary small">Pendaftaran online peserta dengan validasi & laporan
+                                otomatis.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="tech-tag">Laravel</span>
+                                <a href="#" class="text-green text-decoration-none">Detail <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-dev overflow-hidden">
+                        <img src="img/project/sistem-absensi-berbasis-wajah.png" class="project-img w-100"
+                            alt="Absensi Berbasis Wajah">
+                        <div class="p-4">
+                            <h5 class="text-white">Absensi Berbasis Wajah</h5>
+                            <p class="text-secondary small">Absensi dengan pengenalan wajah — otomatis, minim
+                                kecurangan.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="tech-tag">Laravel</span>
+                                <a href="#" class="text-green text-decoration-none">Detail <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-pad">
+        <div class="container">
+            <h2 class="section-title text-center text-white">&lt;<span>Kontak</span> /&gt;</h2>
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="text-white">Mari bekerja sama</h4>
+                    <p class="text-secondary">Punya ide proyek atau peluang kerja? Kirim pesan, saya balas secepatnya.
+                    </p>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-3"><i class="bi bi-envelope text-green me-2"></i>
+                            gilangriskymahardika@gmail.com</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt text-green me-2"></i> Indonesia</li>
+                    </ul>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://github.com/ignagilangfaith-main" target="_blank" class="soc"><i
+                                class="bi bi-github"></i></a>
+                        <a href="mailto:gilangriskymahardika@gmail.com" class="soc"><i
+                                class="bi bi-envelope-fill"></i></a>
+                        <a href="https://ignagilangfaith-main.github.io/portofolio-neubrutalism/" target="_blank"
+                            class="soc"><i class="bi bi-globe2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg" placeholder="nama_lengkap"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-lg" placeholder="email@kamu.com"
+                                    required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="// tulis pesanmu di sini..."
+                                    required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-green btn-lg">
+                                    <i class="bi bi-send me-1"></i> Kirim
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center text-secondary small">
+            <span class="text-green">&copy;</span> 2026 gilang.dev — built with HTML, CSS &amp; Bootstrap
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

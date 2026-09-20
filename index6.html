@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gilang Risky Mahardika — Modern Portfolio</title>
+  <link rel="shortcut icon" href="img/logo/logo.png" type="image/x-icon" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            },
+            accent: {
+              500: '#6366f1',
+              600: '#4f46e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="img/logo/logo.png" alt="Logo" class="h-9 w-9 rounded-xl shadow-sm group-hover:scale-105 transition-transform" />
+        <span class="font-bold text-lg text-slate-900 dark:text-white tracking-tight">Gilang<span class="text-brand-600 dark:text-brand-500">.dev</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-slate-300">
+        <a href="#home" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Tentang</a>
+        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Keahlian</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Proyek</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kontak</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" aria-label="Toggle Theme" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i id="theme-icon" class="bi bi-moon-stars-fill text-lg"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i class="bi bi-list text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-4 space-y-3 font-medium text-slate-600 dark:text-slate-300">
+      <a href="#home" class="block py-2 hover:text-brand-600 dark:hover:text-brand-400">Home</a>
+      <a href="#about" class="block py-2 hover:text-brand-600 dark:hover:text-brand-400">Tentang</a>
+      <a href="#skills" class="block py-2 hover:text-brand-600 dark:hover:text-brand-400">Keahlian</a>
+      <a href="#projects" class="block py-2 hover:text-brand-600 dark:hover:text-brand-400">Proyek</a>
+      <a href="#contact" class="block py-2 hover:text-brand-600 dark:hover:text-brand-400">Kontak</a>
+    </div>
+  </header>
+
+  <main class="flex-grow pt-24">
+    <!-- Hero Section -->
+    <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 text-brand-700 dark:text-brand-400 text-xs sm:text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Fullstack Web Developer
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+            Gilang Risky <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent-500">Mahardika</span>
+          </h1>
+          <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-400">
+            Spesialis PHP Native & Framework Laravel | Lulusan Terbaik IPK 3.71
+          </p>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+            Lulusan Baru (Fresh Graduate) Politeknik Piksi Ganesha Indonesia. Berfokus pada pengembangan aplikasi web yang responsif, terstruktur, aman, dan efisien dari backend hingga frontend.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5">
+              <span>Lihat Proyek</span>
+              <i class="bi bi-arrow-down-short text-xl"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold transition-all hover:-translate-y-0.5">
+              <span>Hubungi Saya</span>
+              <i class="bi bi-envelope text-lg"></i>
+            </a>
+          </div>
+
+          <div class="pt-6 flex items-center gap-6 text-2xl text-slate-500 dark:text-slate-400">
+            <a href="https://github.com/IgnaGilangFaith-Main" target="_blank" rel="noopener" class="hover:text-slate-900 dark:hover:text-white transition-colors" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/gilang-risky-mahardika" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:gilangriskymahardhika@gmail.com" class="hover:text-rose-500 transition-colors" title="Email">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80">
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-brand-600 to-accent-500 blur-2xl opacity-30 dark:opacity-40 animate-pulse"></div>
+            <div class="relative w-full h-full rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl p-6 flex items-center justify-center">
+              <img src="img/logo/logo.png" alt="Profile Logo" class="w-48 h-48 sm:w-56 sm:h-56 object-contain drop-shadow-md" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="border-y border-slate-200 dark:border-slate-800/80 bg-slate-100/50 dark:bg-slate-900/40 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">3.71</div>
+          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mt-1">IPK Kelulusan</p>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">4+</div>
+          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mt-1">Proyek Utama</p>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">PHP/Laravel</div>
+          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mt-1">Spesialisasi Utama</p>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">100%</div>
+          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mt-1">Siap Bekerja</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Tentang Saya</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Profil & Latar Belakang</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm space-y-6">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+            <i class="bi bi-person-badge text-brand-600"></i>
+            Siapa Saya?
+          </h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Saya adalah seorang <strong class="text-slate-900 dark:text-slate-200">Fullstack Web Developer</strong> yang berfokus pada ekosistem PHP dan JavaScript. Saya merupakan lulusan Politeknik Piksi Ganesha Indonesia dengan IPK 3.71.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Memiliki ketertarikan tinggi terhadap arsitektur web MVC, pengelolaan database relational (MySQL), pembuatan RESTful API, hingga integrasi tampilan frontend yang interaktif dan responsif.
+          </p>
+
+          <div class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <i class="bi bi-mortarboard-fill text-brand-600 text-lg"></i>
+              <span><strong>Pendidikan:</strong> Politeknik Piksi Ganesha Indonesia</span>
+            </div>
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <i class="bi bi-award-fill text-brand-600 text-lg"></i>
+              <span><strong>IPK:</strong> 3.71 / 4.00</span>
+            </div>
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <i class="bi bi-geo-alt-fill text-brand-600 text-lg"></i>
+              <span><strong>Lokasi:</strong> Indonesia</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="skills" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm space-y-6">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+            <i class="bi bi-code-slash text-brand-600"></i>
+            Keahlian & Teknologi
+          </h3>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-php-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">PHP</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-laravel-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">Laravel</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-mysql-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">MySQL</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-javascript-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">JavaScript</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-bootstrap-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">Bootstrap</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-tailwindcss-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">Tailwind</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-html5-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">HTML5</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-css3-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">CSS3</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+              <i class="devicon-git-plain colored text-2xl"></i>
+              <span class="font-semibold text-sm">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-slate-100/60 dark:bg-slate-900/40 py-20 border-t border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Portofolio</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Proyek Pilihan</p>
+          <p class="text-slate-600 dark:text-slate-400 mt-3">Beberapa aplikasi & sistem yang telah saya kembangkan.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <!-- Project 1 -->
+          <div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+              <img src="img/project/blog-elmuna.png" alt="Blog Elmuna" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Blog Elmuna</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                  Platform blog informasi dan artikel yang dilengkapi manajemen konten interaktif, sistem kategori, dan pencarian cepat.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PHP</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Laravel</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+              <img src="img/project/e-learning.png" alt="E-Learning Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">E-Learning Platform</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                  Sistem pembelajaran online berbasis web dengan fitur manajemen materi, tugas siswa, dan pemantauan nilai.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PHP</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Bootstrap</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+              <img src="img/project/sistem-pendaftaran-elmuna.png" alt="Sistem Pendaftaran Elmuna" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Sistem Pendaftaran Elmuna</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                  Aplikasi pendaftaran peserta didik/kursus baru secara online dengan alur verifikasi berkas dan laporan admin.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Laravel</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">JavaScript</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800">
+              <img src="img/project/sistem-absensi-berbasis-wajah.png" alt="Sistem Absensi Berbasis Wajah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Sistem Absensi Berbasis Wajah</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                  Aplikasi presensi kehadiran otomatis memanfaatkan teknologi pengenalan wajah untuk akurasi data.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PHP / Python</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Face Recognition</span>
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Kontak</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Mari Bekerja Sama</p>
+        <p class="text-slate-600 dark:text-slate-400 mt-3">Terbuka untuk peluang karir, proyek freelance, atau diskusi teknologi.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="mailto:gilangriskymahardhika@gmail.com" class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all text-center group">
+          <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-1">Email</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 break-all">gilangriskymahardhika@gmail.com</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/gilang-risky-mahardika" target="_blank" rel="noopener" class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all text-center group">
+          <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-linkedin"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-1">LinkedIn</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Gilang Risky Mahardika</p>
+        </a>
+
+        <a href="https://github.com/IgnaGilangFaith-Main" target="_blank" rel="noopener" class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all text-center group">
+          <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-github"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-1">GitHub</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">@IgnaGilangFaith-Main</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+      <p>&copy; 2026 Gilang Risky Mahardika. All rights reserved.</p>
+      <p class="flex items-center gap-1">
+        Dibuat dengan <i class="bi bi-heart-fill text-rose-500"></i> & Tailwind CSS CDN
+      </p>
+    </div>
+  </footer>
+
+  <!-- Interactivity Script -->
+  <script>
+    // Dark mode logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIcon.className = 'bi bi-sun-fill text-amber-400';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIcon.className = 'bi bi-moon-stars-fill text-slate-600';
+      }
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    applyTheme(isDark);
+
+    themeToggleBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      applyTheme(isDark);
+    });
+
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on click link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+
+</html>

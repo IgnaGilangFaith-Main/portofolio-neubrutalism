@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilang Risky Mahardika — Fullstack Web Developer</title>
+    <link rel="shortcut icon" href="img/logo/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b1120;
+            --bg-soft: #0f172a;
+            --card: rgba(255, 255, 255, .04);
+            --border: rgba(255, 255, 255, .09);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --brand: #6366f1;
+            --brand-2: #22d3ee;
+            --grad: linear-gradient(90deg, var(--brand), var(--brand-2));
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            overflow-x: hidden;
+        }
+
+        section {
+            scroll-margin-top: 84px;
+        }
+
+        .text-grad {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(11, 17, 32, .8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color .3s, background .3s;
+            padding-block: .9rem;
+        }
+
+        .navbar.scrolled {
+            border-bottom-color: var(--border);
+            padding-block: .55rem;
+        }
+
+        .navbar-brand img {
+            height: 34px;
+        }
+
+        .navbar .nav-link {
+            color: var(--muted);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: #fff;
+        }
+
+        .navbar .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: .5rem;
+            right: .5rem;
+            bottom: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--grad);
+        }
+
+        /* Buttons */
+        .btn-brand {
+            background: var(--grad);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: .75rem;
+            box-shadow: 0 8px 24px rgba(99, 102, 241, .35);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .btn-brand:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, .45);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 600;
+            border-radius: .75rem;
+            background: transparent;
+            transition: border-color .2s, background .2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--brand);
+            color: #fff;
+            background: rgba(99, 102, 241, .1);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 96px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(600px 300px at 15% 20%, rgba(99, 102, 241, .18), transparent 60%),
+                radial-gradient(500px 300px at 85% 70%, rgba(34, 211, 238, .12), transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 100px;
+            padding: .4rem 1rem;
+            font-size: .85rem;
+            color: var(--muted);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 0 4px rgba(52, 211, 153, .15);
+        }
+
+        .avatar-ring {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            padding: 6px;
+            background: var(--grad);
+            box-shadow: 0 24px 80px rgba(99, 102, 241, .35);
+        }
+
+        .avatar-ring .inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-ring img {
+            width: 72%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .float-chip {
+            position: absolute;
+            background: rgba(15, 23, 42, .9);
+            border: 1px solid var(--border);
+            border-radius: .9rem;
+            padding: .55rem .9rem;
+            font-size: .85rem;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+            animation: floaty 5s ease-in-out infinite;
+        }
+
+        .float-chip i {
+            font-size: 1.1rem;
+        }
+
+        @keyframes floaty {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Sections */
+        .section-pad {
+            padding: 6rem 0;
+        }
+
+        .section-head {
+            margin-bottom: 3rem;
+        }
+
+        .section-kicker {
+            text-transform: uppercase;
+            letter-spacing: .18em;
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--brand-2);
+        }
+
+        .section-title {
+            font-weight: 800;
+            font-size: 2.1rem;
+        }
+
+        /* Cards */
+        .glass-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1.1rem;
+            transition: transform .25s, border-color .25s, background .25s;
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, .5);
+            background: rgba(99, 102, 241, .07);
+        }
+
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: .9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(99, 102, 241, .14);
+            color: var(--brand-2);
+        }
+
+        /* Skills */
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .6rem;
+            padding: 1.25rem .75rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            background: var(--card);
+            transition: transform .25s, border-color .25s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(34, 211, 238, .5);
+        }
+
+        .skill-item i {
+            font-size: 2.4rem;
+        }
+
+        .skill-item span {
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .github-icon {
+            color: #fff;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1.1rem;
+            overflow: hidden;
+            transition: transform .25s, border-color .25s, box-shadow .25s;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, .5);
+            box-shadow: 0 20px 50px rgba(2, 6, 23, .6);
+        }
+
+        .project-thumb {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: var(--bg-soft);
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s;
+        }
+
+        .project-card:hover .project-thumb img {
+            transform: scale(1.06);
+        }
+
+        .tag {
+            font-size: .75rem;
+            font-weight: 600;
+            padding: .3rem .7rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            background: rgba(255, 255, 255, .03);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: linear-gradient(var(--brand), var(--brand-2));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 3px solid var(--brand);
+        }
+
+        /* Contact */
+        .form-control {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: .75rem;
+            padding: .8rem 1rem;
+        }
+
+        .form-control::placeholder {
+            color: #64748b;
+        }
+
+        .form-control:focus {
+            background: var(--card);
+            border-color: var(--brand);
+            box-shadow: 0 0 0 .2rem rgba(99, 102, 241, .2);
+            color: var(--text);
+        }
+
+        .soc {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .8rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 1.2rem;
+            transition: all .25s;
+        }
+
+        .soc:hover {
+            color: #fff;
+            border-color: var(--brand);
+            background: rgba(99, 102, 241, .15);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+        }
+
+        /* Reveal animation — only hidden when JS active, safe fallback */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .js .reveal.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .float-chip {
+                animation: none;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .avatar-ring {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navMenu" data-bs-offset="120" tabindex="0">
+
+    <!-- Navbar -->
+    <nav id="navMenu" class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#home">
+                <img src="img/logo/logo.png" alt="Logo">
+                <span>gilang<span class="text-grad">.dev</span></span>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skill</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-brand btn-sm ms-lg-3 mt-3 mt-lg-0">
+                    <i class="bi bi-send me-1"></i> Hire Me
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="home" class="hero">
+        <div class="container position-relative">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="hero-badge mb-4"><span class="dot"></span> Open for opportunity</span>
+                    <h1 class="display-3 fw-bold mb-3">Halo, saya<br><span class="text-grad">Gilang Risky
+                            Mahardika</span></h1>
+                    <p class="h5 text-secondary mb-4">Fullstack Web Developer — PHP &amp; Laravel</p>
+                    <p class="text-secondary col-lg-9">
+                        Fresh graduate D3 Informatika (IPK 3.71). Membangun website modern yang cepat,
+                        aman, dan mudah dikembangkan — dari landing page hingga sistem informasi penuh.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#projects" class="btn btn-brand btn-lg"><i class="bi bi-rocket-takeoff me-2"></i>Lihat
+                            Proyek</a>
+                        <a href="#contact" class="btn btn-ghost btn-lg"><i class="bi bi-chat-dots me-2"></i>Hubungi
+                            Saya</a>
+                    </div>
+                    <div class="d-flex gap-3 mt-5">
+                        <a href="https://github.com/ignagilangfaith-main" target="_blank" class="soc"><i
+                                class="bi bi-github"></i></a>
+                        <a href="mailto:gilangriskymahardika@gmail.com" class="soc"><i
+                                class="bi bi-envelope-fill"></i></a>
+                        <a href="https://ignagilangfaith-main.github.io/portofolio-neubrutalism/" target="_blank"
+                            class="soc"><i class="bi bi-globe2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <div class="position-relative d-inline-block">
+                        <div class="avatar-ring">
+                            <div class="inner">
+                                <img src="img/logo/logo.png" alt="Gilang Risky Mahardika">
+                            </div>
+                        </div>
+                        <div class="float-chip top-0 start-0"><i class="devicon-laravel-plain colored me-1"></i>
+                            Laravel</div>
+                        <div class="float-chip bottom-0 start-0" style="animation-delay: 1.2s;"><i
+                                class="devicon-php-plain colored me-1"></i> PHP</div>
+                        <div class="float-chip end-0" style="top: 42%; animation-delay: 2.4s;"><i
+                                class="devicon-bootstrap-plain colored me-1"></i> Bootstrap</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="section-pad" style="background: var(--bg-soft);">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 reveal">
+                    <p class="section-kicker mb-2">Tentang Saya</p>
+                    <h2 class="section-title mb-4">Developer yang fokus pada <span class="text-grad">solusi
+                            nyata</span></h2>
+                    <p class="text-secondary">
+                        Saya lulusan D3 Informatika Politeknik Piksi Ganesha Indonesia dengan IPK 3.71.
+                        Terbiasa membangun aplikasi web end-to-end dengan PHP native maupun Laravel —
+                        mulai dari e-learning, sistem pendaftaran, hingga absensi berbasis pengenalan wajah.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        Bagi saya, kode yang baik adalah kode yang mudah dibaca, mudah dirawat,
+                        dan memberi dampak bagi penggunanya.
+                    </p>
+                    <a href="#contact" class="btn btn-brand">Mari Bekerja Sama <i
+                            class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-6 reveal">
+                            <div class="glass-card p-4 text-center">
+                                <div class="display-6 fw-bold text-grad">3.71</div>
+                                <p class="text-secondary small mb-0">IPK D3 Informatika</p>
+                            </div>
+                        </div>
+                        <div class="col-6 reveal">
+                            <div class="glass-card p-4 text-center">
+                                <div class="display-6 fw-bold text-grad">4+</div>
+                                <p class="text-secondary small mb-0">Proyek Web Selesai</p>
+                            </div>
+                        </div>
+                        <div class="col-6 reveal">
+                            <div class="glass-card p-4 text-center">
+                                <div class="display-6 fw-bold text-grad">8+</div>
+                                <p class="text-secondary small mb-0">Teknologi Dikuasai</p>
+                            </div>
+                        </div>
+                        <div class="col-6 reveal">
+                            <div class="glass-card p-4 text-center">
+                                <div class="display-6 fw-bold text-grad">100%</div>
+                                <p class="text-secondary small mb-0">Komitmen &amp; Tanggung Jawab</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-pad">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <p class="section-kicker mb-2">Layanan</p>
+                <h2 class="section-title">Apa yang bisa saya <span class="text-grad">bantu?</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass-card p-4">
+                        <div class="icon-box mb-3"><i class="bi bi-window-sidebar"></i></div>
+                        <h5 class="fw-bold">Frontend Development</h5>
+                        <p class="text-secondary small mb-0">UI responsif dan interaktif dengan HTML, CSS,
+                            Bootstrap, dan Tailwind.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass-card p-4">
+                        <div class="icon-box mb-3"><i class="bi bi-server"></i></div>
+                        <h5 class="fw-bold">Backend Development</h5>
+                        <p class="text-secondary small mb-0">REST API, database, dan logika server dengan
+                            PHP &amp; Laravel.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass-card p-4">
+                        <div class="icon-box mb-3"><i class="bi bi-phone"></i></div>
+                        <h5 class="fw-bold">Responsive Design</h5>
+                        <p class="text-secondary small mb-0">Tampilan optimal di semua perangkat — mobile,
+                            tablet, desktop.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass-card p-4">
+                        <div class="icon-box mb-3"><i class="bi bi-diagram-3"></i></div>
+                        <h5 class="fw-bold">Sistem Informasi</h5>
+                        <p class="text-secondary small mb-0">E-learning, absensi, pendaftaran — aplikasi web
+                            untuk kampus &amp; UMKM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section-pad" style="background: var(--bg-soft);">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <p class="section-kicker mb-2">Tech Stack</p>
+                <h2 class="section-title">Teknologi yang saya <span class="text-grad">gunakan</span></h2>
+            </div>
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i><span>Tailwind</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-laravel-plain colored"></i><span>Laravel</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal">
+                    <div class="skill-item"><i class="devicon-github-original github-icon"></i><span>GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey -->
+    <section id="journey" class="section-pad">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5 reveal">
+                    <p class="section-kicker mb-2">Perjalanan</p>
+                    <h2 class="section-title mb-3">Jejak langkah <span class="text-grad">saya</span></h2>
+                    <p class="text-secondary">Dari bangku kuliah hingga membangun sistem informasi nyata —
+                        setiap tahap membentuk cara saya menulis kode hari ini.</p>
+                </div>
+                <div class="col-lg-7 reveal">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="text-grad fw-bold small">2025 — Sekarang</span>
+                            <h5 class="fw-bold mt-1 mb-1">Fresh Graduate — Mencari Peluang</h5>
+                            <p class="text-secondary small mb-0">Lulus D3 Informatika dengan IPK 3.71. Terbuka
+                                untuk posisi Web Developer.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-grad fw-bold small">2022 — 2025</span>
+                            <h5 class="fw-bold mt-1 mb-1">D3 Informatika</h5>
+                            <p class="text-secondary small mb-0">Politeknik Piksi Ganesha Indonesia. Mendalami
+                                PHP native, Laravel, dan MySQL.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-grad fw-bold small">Proyek Kampus</span>
+                            <h5 class="fw-bold mt-1 mb-1">Sistem Informasi</h5>
+                            <p class="text-secondary small mb-0">E-learning, sistem pendaftaran, blog, dan
+                                absensi berbasis pengenalan wajah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section-pad" style="background: var(--bg-soft);">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <p class="section-kicker mb-2">Portofolio</p>
+                <h2 class="section-title">Proyek <span class="text-grad">terbaru</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/project/e-learning.png" alt="E-Learning">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">MySQL</span>
+                            </div>
+                            <h5 class="fw-bold">E-Learning</h5>
+                            <p class="text-secondary small mb-3">Platform pembelajaran online — manajemen
+                                materi, tugas, dan nilai.</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--brand-2);">
+                                Lihat Detail <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/project/blog-elmuna.png" alt="Blog Elmuna">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">CMS</span>
+                            </div>
+                            <h5 class="fw-bold">Blog Elmuna</h5>
+                            <p class="text-secondary small mb-3">Platform blog dengan artikel, kategori, dan
+                                konten dinamis.</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--brand-2);">
+                                Lihat Detail <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/project/sistem-pendaftaran-elmuna.png" alt="Sistem Pendaftaran Elmuna">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">Form</span>
+                            </div>
+                            <h5 class="fw-bold">Sistem Pendaftaran</h5>
+                            <p class="text-secondary small mb-3">Pendaftaran online peserta dengan validasi
+                                &amp; laporan otomatis.</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--brand-2);">
+                                Lihat Detail <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/project/sistem-absensi-berbasis-wajah.png" alt="Absensi Berbasis Wajah">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">Face ID</span>
+                            </div>
+                            <h5 class="fw-bold">Absensi Wajah</h5>
+                            <p class="text-secondary small mb-3">Absensi dengan pengenalan wajah — otomatis,
+                                minim kecurangan.</p>
+                            <a href="#" class="text-decoration-none fw-semibold" style="color: var(--brand-2);">
+                                Lihat Detail <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-pad">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <p class="section-kicker mb-2">Kontak</p>
+                <h2 class="section-title">Punya proyek? <span class="text-grad">Mari bicara</span></h2>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-5 reveal">
+                    <div class="glass-card p-4 h-100">
+                        <h5 class="fw-bold mb-3">Info Kontak</h5>
+                        <p class="text-secondary small">Kirim pesan lewat form atau hubungi langsung lewat
+                            kanal di bawah ini.</p>
+                        <ul class="list-unstyled text-secondary mt-4">
+                            <li class="d-flex align-items-center gap-3 mb-3">
+                                <span class="icon-box" style="width:42px;height:42px;font-size:1.1rem;"><i
+                                        class="bi bi-envelope"></i></span>
+                                gilangriskymahardika@gmail.com
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-3">
+                                <span class="icon-box" style="width:42px;height:42px;font-size:1.1rem;"><i
+                                        class="bi bi-geo-alt"></i></span>
+                                Indonesia
+                            </li>
+                            <li class="d-flex align-items-center gap-3">
+                                <span class="icon-box" style="width:42px;height:42px;font-size:1.1rem;"><i
+                                        class="bi bi-briefcase"></i></span>
+                                Terbuka untuk freelance &amp; full-time
+                            </li>
+                        </ul>
+                        <div class="d-flex gap-3 mt-4">
+                            <a href="https://github.com/ignagilangfaith-main" target="_blank" class="soc"><i
+                                    class="bi bi-github"></i></a>
+                            <a href="mailto:gilangriskymahardika@gmail.com" class="soc"><i
+                                    class="bi bi-envelope-fill"></i></a>
+                            <a href="https://ignagilangfaith-main.github.io/portofolio-neubrutalism/" target="_blank"
+                                class="soc"><i class="bi bi-globe2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 reveal">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small text-secondary">Nama</label>
+                                <input type="text" class="form-control" placeholder="Nama lengkap" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-secondary">Email</label>
+                                <input type="email" class="form-control" placeholder="email@kamu.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small text-secondary">Subjek</label>
+                                <input type="text" class="form-control" placeholder="Topik pesan" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small text-secondary">Pesan</label>
+                                <textarea class="form-control" rows="5" placeholder="Ceritakan proyek atau peluangmu..."
+                                    required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-brand btn-lg">
+                                    <i class="bi bi-send me-2"></i>Kirim Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div
+            class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-secondary">
+            <span>&copy; 2026 <span class="text-grad fw-semibold">gilang.dev</span> — All rights reserved.</span>
+            <span>Built with <i class="bi bi-heart-fill" style="color:#f43f5e;"></i> HTML, CSS &amp; Bootstrap 5</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Flag JS active (reveal only hides when this present)
+        document.documentElement.classList.add('js');
+
+        // Navbar shrink on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Reveal on scroll + stagger per row
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach((el, i) => {
+            const siblings = el.parentElement ? el.parentElement.querySelectorAll(':scope > .reveal') : [];
+            const idx = Array.from(siblings).indexOf(el);
+            if (idx > 0) el.style.transitionDelay = (idx * 90) + 'ms';
+        });
+
+        const showEl = el => el.classList.add('show');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        showEl(e.target);
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+            reveals.forEach(el => observer.observe(el));
+        } else {
+            reveals.forEach(showEl);
+        }
+
+        // Collapse mobile nav on link click
+        document.querySelectorAll('#nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav');
+                if (nav.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(nav).hide();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
